@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
-using Plugins.Utilidades;
+using Uteis.Implementos;
 using System;
 using System.Linq;
 using static Plugins.Utilidades.MeuEnum;
