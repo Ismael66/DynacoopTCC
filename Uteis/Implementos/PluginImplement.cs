@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xrm.Sdk;
 using System;
 
-namespace Actions.Utilidades
+namespace Uteis.Implementos
 {
     public abstract class PluginImplement : IPlugin
     {

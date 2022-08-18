@@ -159,7 +159,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\Conexao.cs" />
     <Compile Include="Utilidades\MeuEnum.cs" />
-    <Compile Include="Utilidades\PluginImplement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -167,6 +166,7 @@
     <None Include="sgKey.snk" />
   </ItemGroup>
   <ItemGroup />
+  <Import Project="..\Uteis\Uteis.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

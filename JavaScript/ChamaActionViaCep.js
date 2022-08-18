@@ -1,21 +1,21 @@
-﻿if (typeof Customizacao === "undefined") {
-    Customizacao = {};
+﻿if (typeof JavaScript === "undefined") {
+    JavaScript = {};
 }
-Customizacao.ViaCep =
+JavaScript.ViaCep =
 {
     chamaAction: (executionContext) => {
         const formContext = typeof executionContext.getFormContext === "function" ? executionContext.getFormContext() : executionContext;
         const cep = formContext.getAttribute("address1_postalcode").getValue();
-        Customizacao.ViaCep.notificacaoCampo(formContext, "address1_postalcode");
+        JavaScript.ViaCep.notificacaoCampo(formContext, "address1_postalcode");
 
-        if (Customizacao.ViaCep.validaCep(cep)) {
+        if (JavaScript.ViaCep.validaCep(cep)) {
             Xrm.Utility.showProgressIndicator("Preenchendo campos, aguarde...");
 
             var parameters = {};
             parameters.Cep = cep;
 
             var req = new XMLHttpRequest();
-            req.open("POST", Xrm.Utility.getGlobalContext().getClientUrl() + "/api/data/v9.2/new_ActionTestViaCep", true);
+            req.open("POST", Xrm.Utility.getGlobalContext().getClientUrl() + "/api/data/v9.2/new_ActionViaCep", true);
             req.setRequestHeader("OData-MaxVersion", "4.0");
             req.setRequestHeader("OData-Version", "4.0");
             req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
@@ -28,11 +28,11 @@ Customizacao.ViaCep =
                         var dadosCep = JSON.parse(result["DadosCep"]);
                         console.log(dadosCep);
                         if ("erro" in dadosCep) {
-                            Customizacao.ViaCep.notificacaoCampo(formContext, "address1_postalcode", "Cep inválido");
+                            JavaScript.ViaCep.notificacaoCampo(formContext, "address1_postalcode", "Cep inválido");
                             Xrm.Utility.closeProgressIndicator();
                         }
                         else {
-                            Customizacao.ViaCep.preencheCamposEndereco(formContext, dadosCep);
+                            JavaScript.ViaCep.preencheCamposEndereco(formContext, dadosCep);
                         }
                     } else {
                         console.log(this.responseText);
@@ -43,18 +43,19 @@ Customizacao.ViaCep =
             req.send(JSON.stringify(parameters));
         }
         else {
-            Customizacao.ViaCep.notificacaoCampo(formContext, "address1_postalcode", "Cep inválido");
+            JavaScript.ViaCep.notificacaoCampo(formContext, "address1_postalcode", "Cep inválido");
         }
     },
 
     preencheCamposEndereco: (formContext, dadosCep) => {
+        formContext.getAttribute("address1_line1").setValue(dadosCep.logradouro);
+        formContext.getAttribute("address1_line2").setValue(dadosCep.bairro);
+        formContext.getAttribute("address1_line3").setValue(dadosCep.complemento);
+        formContext.getAttribute("log2_ddd").setValue(dadosCep.ddd);
+        formContext.getAttribute("log2_codigoibge").setValue(dadosCep.ibge);
         formContext.getAttribute("address1_city").setValue(dadosCep.localidade);
         formContext.getAttribute("address1_stateorprovince").setValue(dadosCep.uf);
         formContext.getAttribute("address1_country").setValue("Brasil");
-        formContext.getAttribute("address1_line1").setValue(dadosCep.complemento);
-        formContext.getAttribute("address1_line2").setValue(dadosCep.ddd);
-        formContext.getAttribute("address1_line3").setValue(dadosCep.ibge);
-        formContext.getAttribute("address1_city").setValue(dadosCep.localidade);
         Xrm.Utility.closeProgressIndicator();
     },
 

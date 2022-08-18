@@ -9,5 +9,9 @@
     <Import_RootNamespace>Uteis</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Implementos\PluginImplement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Implementos\" />
   </ItemGroup>
 </Project>
