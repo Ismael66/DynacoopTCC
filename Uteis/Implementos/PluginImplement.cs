@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.Xrm.Sdk;
+﻿using Microsoft.Xrm.Sdk;
+using System;
 
-namespace Plugins.Utilidades
+namespace Actions.Utilidades
 {
     public abstract class PluginImplement : IPlugin
     {
@@ -18,6 +18,7 @@ namespace Plugins.Utilidades
             TracingService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
             ExecutePlugin(serviceProvider);
         }
+
         public abstract void ExecutePlugin(IServiceProvider serviceProvider);
     }
 }

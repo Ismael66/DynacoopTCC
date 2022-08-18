@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins", "Plugins\Plugins.csproj", "{0BFB364D-41A8-483F-A3B6-CAF96A838CFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScript", "JavaScript\JavaScript.csproj", "{6144A0B8-718B-462B-BEFB-127D537BC854}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actions", "Actions\Actions.csproj", "{688F5DB2-6C8A-47A4-905F-7021278ACCF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6144A0B8-718B-462B-BEFB-127D537BC854}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6144A0B8-718B-462B-BEFB-127D537BC854}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6144A0B8-718B-462B-BEFB-127D537BC854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{688F5DB2-6C8A-47A4-905F-7021278ACCF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{688F5DB2-6C8A-47A4-905F-7021278ACCF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{688F5DB2-6C8A-47A4-905F-7021278ACCF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{688F5DB2-6C8A-47A4-905F-7021278ACCF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
