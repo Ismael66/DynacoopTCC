@@ -40,8 +40,8 @@ namespace Plugins.Models
                     Entity entidadeUnidade = unidades.Entities.FirstOrDefault();
 
                     string nomeGrupoUnid = entidadeGrupo.GetAttributeValue<String>("name");
-                    EntityCollection gruposPorNome = ChamaQuery(serviceAmbDois, "uomschedule", nomeGrupoUnid);
 
+                    EntityCollection gruposPorNome = ChamaQuery(serviceAmbDois, "uomschedule", nomeGrupoUnid);
                     if (gruposPorNome.Entities.Count > 0)
                     {
                         Guid idGrupoPorNome = gruposPorNome.Entities.FirstOrDefault().Id;
@@ -52,10 +52,8 @@ namespace Plugins.Models
                         Guid idNovoGrupo = serviceAmbDois.Create(entidadeGrupo);
                         productReturn["defaultuomscheduleid"] = new EntityReference("uomschedule", idNovoGrupo);
                     }
-
                     string nomeUnid = entidadeUnidade.GetAttributeValue<String>("name");
                     EntityCollection unidPorNome = ChamaQuery(serviceAmbDois, "uom", nomeUnid);
-
                     if (unidPorNome.Entities.Count > 0)
                     {
                         Guid idUnidPorNome = unidPorNome.Entities.FirstOrDefault().Id;
@@ -71,7 +69,7 @@ namespace Plugins.Models
                 {
                     EntityCollection grupoPadrao = ChamaQuery(serviceAmbDois, "uomschedule", "Unidade Padrão");
                     productReturn["defaultuomscheduleid"] = new EntityReference("uomschedule", grupoPadrao.Entities.FirstOrDefault().Id);
-
+                    
                     EntityCollection unidadePadrao = ChamaQuery(serviceAmbDois, "uom", "Unidade Principal");
                     productReturn["defaultuomid"] = new EntityReference("uom", unidadePadrao.Entities.FirstOrDefault().Id);
                 }

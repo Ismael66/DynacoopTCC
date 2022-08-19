@@ -13,6 +13,7 @@ namespace Plugins.Ambiente1
                 this.Context.InputParameters["Target"] is Entity)
             {
                 Entity produto = (Entity)this.Context.InputParameters["Target"];
+                produto["log2_bloquearcriacao"] = false;
                 Produto.CopiaProduto(this.Service, produto);
             }
         }
