@@ -7,7 +7,6 @@
         formContext.getAttribute("name").setValue(nomeformatado);
     }
 }
-
 function formatar(textovalor) {
     debugger
     return textovalor.toLowerCase()

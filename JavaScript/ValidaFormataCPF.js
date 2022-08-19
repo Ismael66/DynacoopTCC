@@ -10,6 +10,7 @@
         formContext.getControl(labelCpf).setNotification("CPF invalido!", "error.cpf");
     } 
 }
+
 function isCpfValido(campoCpf) {
     if (!campoCpf) { return false; }
     campoCpf = campoCpf.replace(/\D/g, "");
@@ -48,6 +49,7 @@ function resto(soma) {
         return 0;
     }
 }
+
 function calculaDigitoCpf(control, cpf) {
     let soma = 0;
     const maximo = control - 1;

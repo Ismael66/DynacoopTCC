@@ -13,19 +13,17 @@ namespace Actions.Ambiente2
     {
         public override void ExecutePlugin(IServiceProvider serviceProvider)
         {
-            Entity oportunidade = (Entity)this.Context.InputParameters["Target"];
-
-            Guid opportunityid = (Guid)oportunidade.Id;
+            string opportunityid = this.Context.InputParameters["idoportunidade"].ToString();
 
             QueryExpression queryoportunidade = new QueryExpression("opportunity");
-            queryoportunidade.ColumnSet.AddColumns("name", "parentcontactid", "parentcontactid", "purchasetimeframe", "transactioncurrencyid", "budgetamount", "purchaseprocess", "description", "msdyn_forecastcategory", "log_idalfa", "currentsituation", "customerneed");
+            queryoportunidade.ColumnSet = new ColumnSet { AllColumns = true };
             queryoportunidade.Criteria.AddCondition("opportunityid", ConditionOperator.Equal, opportunityid);
-            EntityCollection retri = this.Service.RetrieveMultiple(queryoportunidade);
+            Entity retri = Service.RetrieveMultiple(queryoportunidade).Entities.FirstOrDefault();
 
-            foreach(Entity entidade in retri.Entities)
-            {
-                Service.Create(entidade);
-            }
+            Entity newOpp = retri;
+            newOpp.Id = Guid.Empty;
+            newOpp.Attributes.Remove("opportunityid");
+            Service.Create(newOpp);
 
         }
     }
