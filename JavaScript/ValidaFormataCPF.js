@@ -8,7 +8,7 @@
     }
     else {
         formContext.getControl(labelCpf).setNotification("CPF invalido!", "error.cpf");
-    } r
+    } 
 }
 function isCpfValido(campoCpf) {
     if (!campoCpf) { return false; }

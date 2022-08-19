@@ -160,12 +160,14 @@
   <ItemGroup>
     <Compile Include="Ambiente1\ClonaProduto.cs" />
     <Compile Include="Ambiente1\ContadordeNumero.cs" />
+    <Compile Include="Ambiente1\ClonaOportunidade.cs" />
     <Compile Include="Ambiente1\ValidaCNPJ1.cs" />
     <Compile Include="Ambiente1\ValidaCPF1.cs" />
     <Compile Include="Ambiente2\BloqueiaCriaçãoProduto.cs" />
     <Compile Include="Ambiente2\ValidaCNPJ2.cs" />
     <Compile Include="Ambiente2\ValidaCPF2.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Oportunidade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\Conexao.cs" />
     <Compile Include="Utilidades\MeuEnum.cs" />

@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FormataNome.js" />
-    <Content Include="JavaScript1.js" />
     <Content Include="ValidaFormataCNPJ.js" />
     <Content Include="ValidaFormataCPF.js" />
   </ItemGroup>
