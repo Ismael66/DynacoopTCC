@@ -122,7 +122,7 @@ namespace Plugins.Models
 
         public string[] getIgnoreFields()
         {
-            return new string[] { "systemuser", "organization", "team", "businessunit", "msdyn_predictivescore", "dyp_integracao", "createdon", "createdby", "modifiedon", "modifiedby", "ownerid" };
+            return new string[] { "systemuser", "organization", "team", "businessunit", "msdyn_predictivescore", "createdon", "createdby", "modifiedon", "modifiedby", "ownerid" };
         }
     }
 }

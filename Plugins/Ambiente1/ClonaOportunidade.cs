@@ -39,7 +39,7 @@ namespace Plugins.Ambiente1
                     }
                 }
 
-                integrationOpportunity["dyp2_integracao"] = true;
+                integrationOpportunity["log2_integracao"] = true;
 
                 serviceAmbienteDois.Create(integrationOpportunity);
             }
