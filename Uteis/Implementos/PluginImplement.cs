@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xrm.Sdk;
 using System;
 
+
 namespace Uteis.Implementos
 {
     public abstract class PluginImplement : IPlugin
