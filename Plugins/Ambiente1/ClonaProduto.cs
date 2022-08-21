@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xrm.Sdk;
 using Plugins.Models;
+using Plugins.Utilidades;
 using Uteis.Implementos;
 
 namespace Plugins.Ambiente1
@@ -9,12 +10,15 @@ namespace Plugins.Ambiente1
     {
         public override void ExecutePlugin(IServiceProvider serviceProvider)
         {
-            if (this.Context.InputParameters.Contains("Target") &&
-                this.Context.InputParameters["Target"] is Entity)
+            if (Validate(MeuEnum.MessageName.Create, MeuEnum.PluginStages.PostOperation, MeuEnum.Mode.Synchronous))
             {
-                Entity produto = (Entity)this.Context.InputParameters["Target"];
-                produto["log2_bloquearcriacao"] = false;
-                Produto.CopiaProduto(this.Service, produto);
+                if (Context.InputParameters.Contains("Target") &&
+                    Context.InputParameters["Target"] is Entity)
+                {
+                    Entity produto = (Entity)this.Context.InputParameters["Target"];
+                    produto["log2_bloquearcriacao"] = false;
+                    Produto.CopiaProduto(this.Service, produto);
+                }
             }
         }
     }

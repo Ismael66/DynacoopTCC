@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Uteis.Implementos;
 using System;
+using Plugins.Utilidades;
 
 namespace Plugins.Ambiente2
 {
@@ -8,15 +9,18 @@ namespace Plugins.Ambiente2
     {
         public override void ExecutePlugin(IServiceProvider serviceProvider)
         {
-            if (this.Context.InputParameters.Contains("Target") &&
-                this.Context.InputParameters["Target"] is Entity)
+            if (Validate(MeuEnum.MessageName.Create, MeuEnum.PluginStages.PreValidation, MeuEnum.Mode.Synchronous))
             {
-                Entity produto = (Entity)this.Context.InputParameters["Target"];
-                bool bloqueaCriacao = produto.GetAttributeValue<bool>("log2_bloquearcriacao");
-                if (bloqueaCriacao)
+                if (Context.InputParameters.Contains("Target") &&
+                Context.InputParameters["Target"] is Entity)
                 {
-                    throw new InvalidPluginExecutionException("Não é possivel criar produto no ambiente Ambiente 2, " +
-                                                        "a criação de produtos é permitida somente no ambiente Ambiente 1");
+                    Entity produto = (Entity)this.Context.InputParameters["Target"];
+                    bool bloqueaCriacao = produto.GetAttributeValue<bool>("log2_bloquearcriacao");
+                    if (bloqueaCriacao)
+                    {
+                        throw new InvalidPluginExecutionException("Não é possivel criar produto no ambiente Ambiente 2, " +
+                                                            "a criação de produtos é permitida somente no ambiente Ambiente 1");
+                    }
                 }
             }
         }
