@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk.Query;
 using Uteis.Implementos;
 using System;
 using static Plugins.Utilidades.MeuEnum;
+using Plugins.Utilidades;
 
 namespace Plugins.Ambiente1
 {
@@ -13,8 +14,8 @@ namespace Plugins.Ambiente1
             if (Context.InputParameters.Contains("Target") && Context.InputParameters["Target"] is Entity)
             {
                
-                //if (Context.Stage == (int)PluginStages.PostOperation)
-                //{
+                if (Context.Stage == (int)PluginStages.PostOperation)
+                {
                     
                     Entity entity = (Entity)Context.InputParameters["Target"];
 
@@ -50,7 +51,7 @@ namespace Plugins.Ambiente1
                     updateidconfig["log_numerocorrente"] = valorcontador.ToString();
                     Service.Update(updateidconfig);
                     
-                //}
+                }
             }
         }
     }
