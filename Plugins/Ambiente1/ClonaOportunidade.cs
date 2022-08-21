@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
 using Plugins.Models;
 using Plugins.Utilidades;
 using System;
@@ -39,7 +40,21 @@ namespace Plugins.Ambiente1
                     }
                 }
 
-                integrationOpportunity["log2_integracao"] = true;
+                
+
+                QueryExpression queryidalfa = new QueryExpression("opportunity");
+                queryidalfa.ColumnSet.AddColumns("log_idalfa", "opportunityid");
+                queryidalfa.Criteria.AddCondition("opportunityid", ConditionOperator.Equal, opportunity.Id);
+                EntityCollection alfaId = Service.RetrieveMultiple(queryidalfa);
+
+             
+                foreach (Entity entity in alfaId.Entities)
+                {
+                    integrationOpportunity["log2_idalfa"] = entity["log_idalfa"];
+                    integrationOpportunity["log2_integracao"] = true;
+                    
+                }
+                
 
                 serviceAmbienteDois.Create(integrationOpportunity);
             }
