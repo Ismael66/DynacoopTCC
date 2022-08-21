@@ -169,6 +169,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\Conexao.cs" />
     <Compile Include="Utilidades\MeuEnum.cs" />
+    <Compile Include="Utilidades\ValidatePlugin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -10,7 +10,7 @@ namespace Plugins.Ambiente1
     {
         public override void ExecutePlugin(IServiceProvider serviceProvider)
         {
-            if (Validate(MeuEnum.MessageName.Create, MeuEnum.PluginStages.PostOperation, MeuEnum.Mode.Synchronous))
+            if (ValidatePlugin.Validate(Context, MeuEnum.MessageName.Create, MeuEnum.PluginStages.PostOperation, MeuEnum.Mode.Synchronous))
             {
                 if (Context.InputParameters.Contains("Target") &&
                     Context.InputParameters["Target"] is Entity)
