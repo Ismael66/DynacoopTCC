@@ -18,8 +18,8 @@ namespace Plugins.Ambiente2
                     bool bloqueaCriacao = produto.GetAttributeValue<bool>("log2_bloquearcriacao");
                     if (bloqueaCriacao)
                     {
-                        throw new InvalidPluginExecutionException("Não é possivel criar produto no ambiente Ambiente 2, " +
-                                                            "a criação de produtos é permitida somente no ambiente Ambiente 1");
+                        throw new InvalidPluginExecutionException("Não é possivel criar produto no Ambiente 2, " +
+                                                            "a criação de produtos é permitida somente no Ambiente 1");
                     }
                 }
             }
