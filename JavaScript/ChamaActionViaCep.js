@@ -1,6 +1,6 @@
-﻿if (typeof JavaScript === "undefined") {
-    JavaScript = {};
-}
+﻿if (typeof JavaScript === "undefined") { JavaScript = {} }
+if (typeof (JavaScript.ViaCep) == "undefined") { JavaScript.ViaCep = {} }
+
 JavaScript.ViaCep =
 {
     chamaAction: (executionContext) => {

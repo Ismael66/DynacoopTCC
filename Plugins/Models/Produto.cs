@@ -52,8 +52,10 @@ namespace Plugins.Models
                         Guid idNovoGrupo = serviceAmbDois.Create(entidadeGrupo);
                         productReturn["defaultuomscheduleid"] = new EntityReference("uomschedule", idNovoGrupo);
                     }
+
                     string nomeUnid = entidadeUnidade.GetAttributeValue<String>("name");
                     EntityCollection unidPorNome = ChamaQuery(serviceAmbDois, "uom", nomeUnid);
+
                     if (unidPorNome.Entities.Count > 0)
                     {
                         Guid idUnidPorNome = unidPorNome.Entities.FirstOrDefault().Id;
