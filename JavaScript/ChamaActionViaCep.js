@@ -56,6 +56,7 @@ JavaScript.ViaCep =
         formContext.getAttribute("address1_city").setValue(dadosCep.localidade);
         formContext.getAttribute("address1_stateorprovince").setValue(dadosCep.uf);
         formContext.getAttribute("address1_country").setValue("Brasil");
+        formContext.getAttribute("address1_postalcode").setValue(dadosCep.cep.replace(/(\d{5})(\d{3})/, "$1-$2"));
         Xrm.Utility.closeProgressIndicator();
     },
 
