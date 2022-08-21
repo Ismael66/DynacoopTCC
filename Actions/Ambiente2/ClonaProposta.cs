@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Uteis.Implementos;
+using Plugins.Utilidades;
+using Microsoft.Xrm.Tooling.Connector;
+
 
 namespace Actions.Ambiente2
 {
@@ -14,12 +17,11 @@ namespace Actions.Ambiente2
         public override void ExecutePlugin(IServiceProvider serviceProvider)
         {
             string opportunityid = this.Context.InputParameters["idoportunidade"].ToString();
-
+            TracingService.Trace("1");
             QueryExpression queryoportunidade = new QueryExpression("opportunity");
             queryoportunidade.ColumnSet = new ColumnSet { AllColumns = true };
             queryoportunidade.Criteria.AddCondition("opportunityid", ConditionOperator.Equal, opportunityid);
             Entity retri = Service.RetrieveMultiple(queryoportunidade).Entities.FirstOrDefault();
-
 
             Entity newOpp = retri;
             newOpp.Id = Guid.Empty;
@@ -30,3 +32,6 @@ namespace Actions.Ambiente2
         }
     }
 }
+
+
+
