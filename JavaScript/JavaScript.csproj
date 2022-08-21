@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ChamaActionClona.js" />
     <Content Include="ChamaActionViaCep.js" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

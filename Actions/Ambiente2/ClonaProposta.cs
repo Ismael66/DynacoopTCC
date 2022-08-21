@@ -20,11 +20,13 @@ namespace Actions.Ambiente2
             queryoportunidade.Criteria.AddCondition("opportunityid", ConditionOperator.Equal, opportunityid);
             Entity retri = Service.RetrieveMultiple(queryoportunidade).Entities.FirstOrDefault();
 
+
             Entity newOpp = retri;
             newOpp.Id = Guid.Empty;
             newOpp.Attributes.Remove("opportunityid");
+            newOpp["stepname"] = "1-Qualificar";
             Service.Create(newOpp);
-
+            
         }
     }
 }
