@@ -40,21 +40,11 @@ namespace Plugins.Ambiente1
                     }
                 }
 
-                
 
-                QueryExpression queryidalfa = new QueryExpression("opportunity");
-                queryidalfa.ColumnSet.AddColumns("log_idalfa", "opportunityid");
-                queryidalfa.Criteria.AddCondition("opportunityid", ConditionOperator.Equal, opportunity.Id);
-                EntityCollection alfaId = Service.RetrieveMultiple(queryidalfa);
+                integrationOpportunity["log2_idalfa"] = opportunity["log_idalfa"];
+                integrationOpportunity["log2_integracao"] = true;
 
-             
-                foreach (Entity entity in alfaId.Entities)
-                {
-                    integrationOpportunity["log2_idalfa"] = entity["log_idalfa"];
-                    integrationOpportunity["log2_integracao"] = true;
-                    
-                }
-                
+
 
                 serviceAmbienteDois.Create(integrationOpportunity);
             }

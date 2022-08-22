@@ -1,13 +1,8 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Uteis.Implementos;
-using Plugins.Utilidades;
-using Microsoft.Xrm.Tooling.Connector;
 
 
 namespace Actions.Ambiente2
